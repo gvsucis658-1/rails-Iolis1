@@ -17,6 +17,12 @@ ActiveRecord::Schema[7.1].define(version: 2024_02_12_150751) do
     t.integer "armor_class"
     t.integer "weight"
     t.text "description"
+    t.integer "intelligence"
+    t.integer "wisdom"
+    t.integer "strength"
+    t.integer "dexterity"
+    t.integer "constitution"
+    t.integer "charisma"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

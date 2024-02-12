@@ -8,6 +8,7 @@ class ArmorsController < ApplicationController
 
   # GET /armors/1 or /armors/1.json
   def show
+    @armor = Armor.find(params[:id])
   end
 
   # GET /armors/new
@@ -17,6 +18,7 @@ class ArmorsController < ApplicationController
 
   # GET /armors/1/edit
   def edit
+    @armor = Armor.find(params[:id])
   end
 
   # POST /armors or /armors.json
@@ -65,6 +67,6 @@ class ArmorsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def armor_params
-      params.require(:armor).permit(:name, :armor_type, :armor_class, :weight, :description)
+      params.require(:armor).permit(:name, :armor_type, :armor_class, :weight, :description, :intelligence, :wisdom, :strength, :dexterity, :constitution, :charisma)
     end
 end
