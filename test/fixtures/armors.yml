@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  armor_type: MyString
+  armor_class: 1
+  weight: 1
+  description: MyText
+
+two:
+  name: MyString
+  armor_type: MyString
+  armor_class: 1
+  weight: 1
+  description: MyText
