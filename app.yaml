@@ -1,0 +1,4 @@
+runtime: ruby
+env: flex
+entrypoint: bundle exec rails server Rack -p $PORT
+service: homework-six
