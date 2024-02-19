@@ -1,0 +1,18 @@
+<div id="<%= dom_id equip %>">
+    <h2 class="font-bold text-lg mb-3"> Current Equipment </h2>
+
+    <ul class="list-disc list-inside">
+        <% equip.line_items.each do |item| %>
+        <% case item.armor.armor_type %>
+            <% when "Plate" %>
+              <li class="flex items-center space-x-2"><%= image_tag 'plate.gif', class: "w-10" %><span><%= item.armor.name %></span></li>
+            <% when "Leather" %>
+              <li class="flex items-center space-x-2"><%= image_tag 'leather.gif', class: "w-10" %><span><%= item.armor.name %></span></li>
+            <% when "Chainmail" %>
+              <li class="flex items-center space-x-2"><%= image_tag 'chainmail.gif', class: "w-10" %><span><%= item.armor.name %></span></li>
+            <% when "Cloth" %>
+              <li class="flex items-center space-x-2"><%= image_tag 'cloth.gif', class: "w-10" %><span><%= item.armor.name %></span></li>
+            <% end %>
+        <% end %>
+    </ul>
+</div>

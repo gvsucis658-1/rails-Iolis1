@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_02_12_150751) do
+ActiveRecord::Schema[7.1].define(version: 2024_02_13_012448) do
   create_table "armors", force: :cascade do |t|
     t.string "name"
     t.string "armor_type"
@@ -27,11 +27,20 @@ ActiveRecord::Schema[7.1].define(version: 2024_02_12_150751) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "posts", force: :cascade do |t|
-    t.string "title"
-    t.text "body"
+  create_table "equips", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
+  create_table "line_items", force: :cascade do |t|
+    t.integer "armor_id", null: false
+    t.integer "equip_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["armor_id"], name: "index_line_items_on_armor_id"
+    t.index ["equip_id"], name: "index_line_items_on_equip_id"
+  end
+
+  add_foreign_key "line_items", "armors"
+  add_foreign_key "line_items", "equips"
 end

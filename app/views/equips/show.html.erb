@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @equip %>
+
+<div>
+  <%= link_to "Edit this equip", edit_equip_path(@equip) %> |
+  <%= link_to "Back to equips", equips_path %>
+
+  <%= button_to "Destroy this equip", @equip, method: :delete %>
+</div>

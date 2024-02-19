@@ -1,0 +1,8 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+.bg-image{
+    background-size: cover;
+    background-position: center;
+    opacity: 0.5;
+}

@@ -1,14 +1,61 @@
-<p style="color: green"><%= notice %></p>
-
-<h1>Armors</h1>
-
-<div id="armors">
-  <% @armors.each do |armor| %>
-    <%= render armor %>
-    <p>
-      <%= link_to "Show this armor", armor %>
+<div class="w-full">
+  <% if notice.present? %>
+    <p class="py-2 px-3 bg-green-50 mb-5 text-green-500 font-medium rounded-lg inline-block" id="notice">
+      <%= notice %>
     </p>
   <% end %>
+
+<div class = "flex justify-between items-center pb-8"> 
+  <h1 class="mx-auto font-bold text-4xl">Armors</h1>
 </div>
 
-<%= link_to "New armor", new_armor_path %>
+  <table id="armor" class="mx-auto">
+    <tfoot>
+      <tr>
+        <td colspan="3">
+          <div class="mt-8">
+            <%=link_to 'New armor', new_armor_path, class: "inline rounded-lg py-3 px-5 bg-green-600
+                text-white block font-medium" %>
+          </div>
+        </td>
+      </tr>
+    </tfoot>
+    <tbody>
+      <% @armors.each do |armor| %>
+        <tr class="<%= cycle('bg-green-50', 'bg-white')%>">
+          <td class="px-2 py-3">
+            <% case armor.armor_type %>
+            <% when "Plate" %>
+              <%= image_tag 'plate.gif', class: "w-10" %>
+            <% when "Leather" %>
+              <%= image_tag 'leather.gif', class: "w-10" %>
+            <% when "Chainmail" %>
+              <%= image_tag 'chainmail.gif', class: "w-10" %>
+            <% when "Cloth" %>
+              <%= image_tag 'cloth.gif', class: "w-10" %>
+            <% end %>
+          </td>
+          <td>
+            <h1 class="text-xl font-bold mb-3"> <%= armor.name %> </h1>
+            <p>
+              <%= truncate(strip_tags(armor.description), length: 80) %>
+            </p>
+          </td>
+          <td class="px-3">
+            <ul>
+              <li>
+                <%= link_to 'Show this armor', armor, class: 'hover:underline' %>
+              </li>
+              <li>
+                <%= link_to 'Edit this armor', edit_armor_path(armor), class: 'hover:underline' %>
+              </li>
+              <li>
+                <%= link_to 'Destroy this armor', armor, class:'hover:underline', data: { turbo_method: :delete, confirm: "Are you sure?" } %>
+              </li>
+            </ul>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
