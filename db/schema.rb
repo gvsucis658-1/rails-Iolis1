@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_02_13_012448) do
+ActiveRecord::Schema[7.1].define(version: 2024_02_19_232233) do
   create_table "armors", force: :cascade do |t|
     t.string "name"
     t.string "armor_type"
@@ -39,6 +39,13 @@ ActiveRecord::Schema[7.1].define(version: 2024_02_13_012448) do
     t.datetime "updated_at", null: false
     t.index ["armor_id"], name: "index_line_items_on_armor_id"
     t.index ["equip_id"], name: "index_line_items_on_equip_id"
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string "name"
+    t.string "password_digest"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   add_foreign_key "line_items", "armors"
