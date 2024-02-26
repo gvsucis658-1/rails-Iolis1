@@ -9,13 +9,14 @@
     <h2 class="font-bold text-3xl">Please Log In</h2>
     <div class="my-5">
       <%= label_tag :name, 'Name:' %>
-      <%= text_field_tag :name, params[:name], class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+      <%= text_field_tag :name, params[:name], class: "rounded-lg payment-field" %>
     </div>
     <div class="my-5">
-      <%= label_tag :password, params[:password], class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+      <%= label_tag :password, 'Password:' %>
+      <%= password_field_tag :password, params[:password], class: "rounded-lg payment-field" %>
     </div>
     <div class="actions">
-      <%= submit_tag "login", class: "rounded-lg py-3 px-5 bg-green-600 text-block inline-block font-medium cursor-pointer" %>
+      <%= submit_tag "Login", class: "rounded-lg py-3 px-5 bg-green-600 text-block inline-block font-medium cursor-pointer" %>
     </div>
   <% end %>
 </div>

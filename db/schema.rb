@@ -41,6 +41,13 @@ ActiveRecord::Schema[7.1].define(version: 2024_02_19_232233) do
     t.index ["equip_id"], name: "index_line_items_on_equip_id"
   end
 
+  create_table "posts", force: :cascade do |t|
+    t.string "title"
+    t.text "body"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "name"
     t.string "password_digest"
